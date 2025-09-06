@@ -88,11 +88,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color(0xFF1087AE), // Blue at 8%
-            Color(0xFFFB7589), // Purple at 46%
-            Color(0xFFF5C474), // Pink at 100%
+            Color(0xFF660000), // Dark red (deep wine)
+            Color(0xFF1C1C1C), // Dark gray
+            Colors.black,      // Pure black
           ],
-          stops: [0.02, 0.45, 1.0],
+          stops: [0.0, 0.4, 1.0],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
