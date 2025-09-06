@@ -45,11 +45,11 @@ class _RadioScreenState extends State<RadioScreen> {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color(0xFFD5576E),
-            Color(0xFFE68382),
-            Color(0xFFF7B075),
+            Color(0xFF660000), // Dark red (deep wine)
+            Color(0xFF1C1C1C), // Dark gray
+            Colors.black,      // Pure black
           ],
-          stops: [0.12, 0.56, 1.0],
+          stops: [0.0, 0.4, 1.0],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),

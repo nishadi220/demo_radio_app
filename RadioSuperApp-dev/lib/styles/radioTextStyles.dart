@@ -23,7 +23,7 @@ class RadioTextStyles {
 
   static TextStyle bottomBarTextStyle = GoogleFonts.inter(
       textStyle: const TextStyle(
-        color: Colors.black,
+        color: Colors.white,
         fontSize: 12,
         fontWeight: FontWeight.w800,
       )

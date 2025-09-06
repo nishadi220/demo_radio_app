@@ -4,6 +4,7 @@ class AppRoutes {
 
   static const String homePage = '/home';
   static const String radioPage = '/radio';
+  static const String livePage = '/live';
   static const String playlistPage = '/playlist';
   static const String podcastPage = '/podcast';
   static const String settingsPage = '/settings';
@@ -42,6 +43,4 @@ class AppRoutes {
   static const String notificationsSettings = "/notifications_settings";
   static const String privacyPolicy = "/privacy_policy";
   static const String termsAndConditions = "/terms_conditions";
-
-
 }
