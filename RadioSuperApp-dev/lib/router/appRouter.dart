@@ -6,6 +6,7 @@ import 'package:radio_super_app/pages/chats/chatLoginScreen.dart';
 import 'package:radio_super_app/pages/chats/chatOtpScreen.dart';
 import 'package:radio_super_app/pages/home/homeScreen.dart';
 import 'package:radio_super_app/pages/Search/searchScreen.dart';
+import 'package:radio_super_app/pages/live/liveScreen.dart';
 import 'package:radio_super_app/pages/mainScreen.dart';
 import 'package:radio_super_app/pages/playlist/playlistCategoriesScreen.dart';
 import 'package:radio_super_app/pages/playlist/playlistOpenScreen.dart';
@@ -83,6 +84,14 @@ final appRouter = GoRouter(
                       builder: (context, state) => const RadioProgrammeScreen(),
                     )
                   ]
+              )
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                  path: AppRoutes.livePage,
+                  builder: (context, state) => const LiveScreen(),
               )
             ],
           ),
