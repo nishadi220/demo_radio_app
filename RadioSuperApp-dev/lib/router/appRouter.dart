@@ -6,7 +6,7 @@ import 'package:radio_super_app/pages/chats/chatLoginScreen.dart';
 import 'package:radio_super_app/pages/chats/chatOtpScreen.dart';
 import 'package:radio_super_app/pages/home/homeScreen.dart';
 import 'package:radio_super_app/pages/Search/searchScreen.dart';
-import 'package:radio_super_app/pages/live/liveScreen.dart';
+import 'package:radio_super_app/pages/live/videoScreen.dart';
 import 'package:radio_super_app/pages/mainScreen.dart';
 import 'package:radio_super_app/pages/playlist/playlistCategoriesScreen.dart';
 import 'package:radio_super_app/pages/playlist/playlistOpenScreen.dart';
@@ -27,6 +27,7 @@ import '../pages/Settings/languagePreferences.dart';
 import '../pages/Settings/playbackQuality.dart';
 import '../pages/chats/chatScreen.dart';
 import '../pages/favourites/favouritesScreen.dart';
+import '../pages/live/individualVideoScreen.dart';
 import '../pages/podcast/podcastEpisodeScreen.dart';
 import '../pages/settings/privacyPolicyScreen.dart';
 import '../pages/settings/termsAndConditions.dart';
@@ -75,10 +76,6 @@ final appRouter = GoRouter(
                   path: AppRoutes.radioPage,
                   builder: (context, state) => const RadioScreen(),
                   routes: [
-                    // GoRoute(
-                    //   path: AppRoutes.radioPlayer,
-                    //   builder: (context, state) => const SuperRadioPlayer(),
-                    // ),
                     GoRoute(
                       path: AppRoutes.radioProgramme,
                       builder: (context, state) => const RadioProgrammeScreen(),
@@ -90,8 +87,17 @@ final appRouter = GoRouter(
           StatefulShellBranch(
             routes: [
               GoRoute(
-                  path: AppRoutes.livePage,
-                  builder: (context, state) => const LiveScreen(),
+                  path: AppRoutes.videoPage,
+                  builder: (context, state) => const VideoScreen(),
+                  routes: [
+                    GoRoute(
+                      path: AppRoutes.individualVideo,
+                      builder: (context, state) {
+                        final videoData = state.extra as Map<String, dynamic>;
+                        return IndividualLiveScreen(videoData: videoData);
+                      },
+                    ),
+                  ]
               )
             ],
           ),
@@ -120,29 +126,6 @@ final appRouter = GoRouter(
 
                       },
                     ),
-                    // GoRoute(
-                    //   path: AppRoutes.podcastPlayer,
-                    //   builder: (context, state) {
-                    //     // final dummyPodcastEpisode = PodcastEpisodeEntity(
-                    //     //   id: '12345',
-                    //     //   name: 'The Art of Resilience',
-                    //     //   description: 'A deep dive into building mental strength in challenging times.',
-                    //     //   fileUrl: 'https://nadeo.azurewebsites.net/Images/INNA_Be_My_Lover_Official_Music_Video.mp3',
-                    //     //   pic: 'https://nadeo.azurewebsites.net/Images/Music.jpg',
-                    //     //   duration: '45:30',
-                    //     //   languageId: 1,
-                    //     //   loopId: 'loop123',
-                    //     // );
-                    //
-                    //     final data = state.extra as PodcastEpisodeEntity; // Replace `ShowEntity` with the actual data type
-                    //     // return const SuperPodCastPlayer(audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", title: "Tipsy Podcast");
-                    //     // return const SuperPodCastPlayer(playerData: null,);
-                    //
-                    //     return SuperPodCastPlayer.forPodcast(
-                    //       podcastPlayerData: data,
-                    //     );
-                    //   },
-                    // ),
                   ]
               )
             ],
@@ -172,33 +155,6 @@ final appRouter = GoRouter(
                         return PlaylistOpenScreen(data: data);
                       },
                     ),
-                    // GoRoute(
-                    //   path: AppRoutes.podcastPlayer,
-                    //   builder: (context, state) {
-                    //     final dummyPodcastEpisode = EpisodeEntity(
-                    //       id: '12345',
-                    //       playlistId: "001",
-                    //       name: 'The Art of Resilience',
-                    //       artists: "test artist",
-                    //       composers: "test composer",
-                    //       lyricists: "test lyricist",
-                    //       // description: 'A deep dive into building mental strength in challenging times.',
-                    //       fileUrl: 'https://nadeo.azurewebsites.net/Images/Music.jpg',
-                    //       pic: 'https://nadeo.azurewebsites.net/Images/INNA_Be_My_Lover_Official_Music_Video.mp3',
-                    //       duration: '45:30',
-                    //       // languageId: 1,
-                    //       // loopId: 'loop123',
-                    //     );
-                    //
-                    //     // final show = state.extra as ShowEntity; // Replace `ShowEntity` with the actual data type
-                    //     // return const SuperPodCastPlayer(audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", title: "Tipsy Podcast");
-                    //     // return const SuperPodCastPlayer(playerData: null,);
-                    //
-                    //     return SuperPodCastPlayer.forPlaylist(
-                    //       playlistPlayerData: dummyPodcastEpisode,
-                    //     );
-                    //   },
-                    // ),
                   ]
               )
             ],
