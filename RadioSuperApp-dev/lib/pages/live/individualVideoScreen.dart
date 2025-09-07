@@ -29,25 +29,16 @@ class _IndividualLiveScreenState extends State<IndividualLiveScreen> {
       "time": "459K views · 5 days ago",
       "videoUrl": "https://www.youtube.com/watch?v=o6Z0MxWCbrc"
     },
-    {
-      "thumbnail": "https://i.ytimg.com/vi/o6Z0MxWCbrc/hq720.jpg",
-      "title": "We built our very own hobbit house!",
-      "channel": "DIY Perks",
-      "time": "459K views · 5 days ago",
-      "videoUrl": "https://www.youtube.com/watch?v=o6Z0MxWCbrc"
-    },
   ];
 
   @override
   void initState() {
     super.initState();
-    final videoId = YoutubePlayer.convertUrlToId(widget.videoData['videoUrl']) ?? '';
+    final videoId =
+        YoutubePlayer.convertUrlToId(widget.videoData['videoUrl']) ?? '';
     _youtubeController = YoutubePlayerController(
       initialVideoId: videoId,
-      flags: const YoutubePlayerFlags(
-        autoPlay: true,
-        mute: false,
-      ),
+      flags: const YoutubePlayerFlags(autoPlay: true, mute: false),
     );
   }
 
@@ -57,6 +48,16 @@ class _IndividualLiveScreenState extends State<IndividualLiveScreen> {
     super.dispose();
   }
 
+  Widget _buildActionButton(IconData icon, String label) {
+    return Column(
+      children: [
+        Icon(icon, color: Colors.white, size: 24),
+        const SizedBox(height: 4),
+        Text(label, style: const TextStyle(color: Colors.white70, fontSize: 12)),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final video = widget.videoData;
@@ -64,115 +65,146 @@ class _IndividualLiveScreenState extends State<IndividualLiveScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
-        child: Column(
-          children: [
-            // App Bar
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () => context.pop(),
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                  ),
-                  Expanded(
-                    child: Text(
-                      video['title'] ?? 'Video',
-                      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Video Player
+              YoutubePlayer(
+                controller: _youtubeController,
+                showVideoProgressIndicator: true,
+                progressIndicatorColor: Colors.red,
+              ),
+
+              // Title
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  video['title'] ?? '',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+
+              // Views + hashtags row
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: Text(
+                  "${video['views'] ?? '138K views'}  •  ${video['time'] ?? '3 months ago'}  #Azure",
+                  style: const TextStyle(color: Colors.white60, fontSize: 12),
+                ),
+              ),
+
+              const SizedBox(height: 8),
+
+              // Channel info row
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      child: Icon(Icons.person, color: Colors.white),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        video['channel'] ?? 'Channel Name',
+                        style: const TextStyle(
+                            color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
 
-            // YouTube Video Player
-            YoutubePlayer(
-              controller: _youtubeController,
-              showVideoProgressIndicator: true,
-              progressIndicatorColor: Colors.red,
-            ),
+              const SizedBox(height: 12),
 
-            // Video Details
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    video['title'] ?? '',
-                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Text(video['channel'] ?? '', style: const TextStyle(color: Colors.white70, fontSize: 14)),
-                      const Spacer(),
-                      Text(video['time'] ?? '', style: const TextStyle(color: Colors.white38, fontSize: 12)),
-                    ],
-                  ),
-                ],
+              // Action buttons row
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _buildActionButton(Icons.thumb_up_alt_outlined, "5.9K"),
+                    _buildActionButton(Icons.thumb_down_alt_outlined, "Dislike"),
+                    _buildActionButton(Icons.share, "Share"),
+                  ],
+                ),
               ),
-            ),
 
-            const Divider(color: Colors.white24),
+              const Divider(color: Colors.white24, thickness: 0.5),
 
-            // Related Videos
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+              // Related Videos Section
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                child: Text(
+                  "Related Videos",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: relatedVideos.length,
                 itemBuilder: (context, index) {
                   final related = relatedVideos[index];
-                  return GestureDetector(
-                    onTap: () {
-                      context.push('/video/individual', extra: related);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 16.0),
-                      child: Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image.network(
-                              related['thumbnail'] ?? '',
-                              width: 120,
-                              height: 68,
-                              fit: BoxFit.cover,
-                            ),
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.network(
+                            related['thumbnail']!,
+                            width: 120,
+                            height: 70,
+                            fit: BoxFit.cover,
                           ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  related['title'] ?? '',
-                                  style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded( // ✅ Prevents overflow
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                related['title']!,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
                                 ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  related['channel'] ?? '',
-                                  style: const TextStyle(color: Colors.white70, fontSize: 12),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis, // ✅ tidy long titles
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                "${related['channel']} • ${related['views']} • ${related['time']}",
+                                style: const TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 12,
                                 ),
-                                Text(
-                                  related['time'] ?? '',
-                                  style: const TextStyle(color: Colors.white38, fontSize: 10),
-                                ),
-                              ],
-                            ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis, // ✅ tidy metadata
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   );
                 },
               ),
-            ),
-          ],
+
+            ],
+          ),
         ),
       ),
     );
