@@ -31,11 +31,9 @@ class PodcastEpisodeScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF4360AA), // Blue at 8%
-              Color(0xFF91B7F6), // Purple at 46%
-              Color(0xFF908DF3), // Pink at 100%
+              Color(0xFF7030A0), // Custom color
+              Colors.black,      // Black
             ],
-            stops: [0.10, 0.60, 1.0],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

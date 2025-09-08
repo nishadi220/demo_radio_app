@@ -304,8 +304,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                   label: 'Radio',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.live_tv, color: AppColors.iconColor), // New Live tab
-                  label: 'Live',
+                  icon: Icon(Icons.ondemand_video, color: AppColors.iconColor), // New Live tab
+                  label: 'Video',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.podcasts, color: AppColors.iconColor),

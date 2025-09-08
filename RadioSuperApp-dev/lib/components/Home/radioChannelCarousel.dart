@@ -101,7 +101,7 @@ class _RadioChannelCarouselState extends State<RadioChannelCarousel> {
             ],
           ),
         ),
-        const SizedBox(height: 08),
+        const SizedBox(height: 8),
         CarouselSlider(
           carouselController: _controller,
           items: _stations.map((station) {
@@ -110,10 +110,31 @@ class _RadioChannelCarouselState extends State<RadioChannelCarousel> {
                 // Play the radio stream in mini player
                 Provider.of<RadioChannelProvider>(context, listen: false)
                     .setCurrentRadioChannel(station);
-                // context.push(AppRoutes.radioPage + AppRoutes.radioPlayer);
-                _controller.jumpToPage(_stations.indexWhere((station1) => station1.id == station.id));
+                _controller.jumpToPage(
+                    _stations.indexWhere((station1) => station1.id == station.id));
               },
-              child: buildChannelCard(context, station.picUrl, station.name),
+              child: Container(
+                padding: const EdgeInsets.all(8.0), // Padding around the image
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16), // Rounded corners
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 4,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16), // Clip image corners
+                  child: Image.network(
+                    station.picUrl,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 140,
+                  ),
+                ),
+              ),
             );
           }).toList(),
           options: CarouselOptions(

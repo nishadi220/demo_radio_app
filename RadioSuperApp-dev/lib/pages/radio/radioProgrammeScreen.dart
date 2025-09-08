@@ -57,11 +57,9 @@ class RadioProgrammeScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFFD5576E), // Blue at 8%
-              Color(0xFFE68382), // Purple at 46%
-              Color(0xFFF7B075), // Pink at 100%
+              Color(0xFF7030A0), // Custom color
+              Colors.black,      // Black
             ],
-            stops: [0.12, 0.56, 1.0],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

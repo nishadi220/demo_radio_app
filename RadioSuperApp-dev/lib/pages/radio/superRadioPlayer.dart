@@ -96,15 +96,11 @@ class _SuperRadioPlayerState extends State<SuperRadioPlayer> {
 
     return Container(
       decoration: const BoxDecoration(
-        gradient:
-        //widget.gradient
-        LinearGradient(
+        gradient: LinearGradient(
           colors: [
-            Color(0xFFD5576E),
-            Color(0xFFE68382),
-            Color(0xFFF7B075),
+            Color(0xFF7030A0), // Custom color
+            Colors.black,      // Black
           ],
-          stops: [0.12, 0.56, 1.0],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),

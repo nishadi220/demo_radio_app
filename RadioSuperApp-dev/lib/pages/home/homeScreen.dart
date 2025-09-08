@@ -88,11 +88,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color(0xFF660000), // Dark red (deep wine)
-            Color(0xFF1C1C1C), // Dark gray
-            Colors.black,      // Pure black
+            Color(0xFF7030A0), // Custom color
+            Colors.black,      // Black
           ],
-          stops: [0.0, 0.4, 1.0],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -160,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                           imagePath: show.picUrl,
                                           title: show.showName,
                                           description: show.description,
-                                          startTime: show.startTime,
+                                          // startTime: show.startTime,
                                         ),
                                     );
                                   },

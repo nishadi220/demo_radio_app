@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace = "com.sirasa.radio_super_app"
+    namespace "com.sirasa.radio_super_app"
     compileSdk = 35 // flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

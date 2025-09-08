@@ -34,11 +34,9 @@ class VideoScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF660000),
-              Color(0xFF1C1C1C),
-              Colors.black,
+              Color(0xFF7030A0), // Custom color
+              Colors.black,      // Black
             ],
-            stops: [0.0, 0.4, 1.0],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

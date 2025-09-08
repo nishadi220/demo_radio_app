@@ -26,24 +26,25 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft, // Starting point of the gradient
-            end: Alignment.bottomRight, // Ending point of the gradient
-            colors: [
-              Color(0xFF2196F3), // Blue
-              Color(0xFF9E2424), // Light Blue
-            ],
-          ),
-        ),
+        // decoration: const BoxDecoration(
+        //   gradient: LinearGradient(
+        //     colors: [
+        //       Color(0xFF7030A0), // Custom color
+        //       Colors.black,      // Black
+        //     ],
+        //     begin: Alignment.topCenter,
+        //     end: Alignment.bottomCenter,
+        //   ),
+        // ),
+        color: Colors.white,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                AppImages.appLogo, // Replace with your image URL
-                width: 150,
-                height: 150,
+                AppImages.nadeoLogo, // Replace with your image URL
+                width: 250,
+                height: 350,
                 errorBuilder: (context, error, stackTrace) {
                   return const Icon(
                     Icons.error_outline,
@@ -53,14 +54,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 },
               ),
               const SizedBox(height: 20),
-              const Text(
-                'Radio Super App',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              // const Text(
+              //   'Nadeo Radio Services',
+              //   style: TextStyle(
+              //     color: Colors.black,
+              //     fontSize: 24,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
             ],
           ),
         ),

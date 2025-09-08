@@ -32,13 +32,13 @@ class RadioMiniPlayer extends StatelessWidget {
               width: 60,
               height: 60,
               margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(0),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(5),
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(5),
                 child: Image.network(
                   currentChannel?.picUrl ?? "",
                   fit: BoxFit.cover,
