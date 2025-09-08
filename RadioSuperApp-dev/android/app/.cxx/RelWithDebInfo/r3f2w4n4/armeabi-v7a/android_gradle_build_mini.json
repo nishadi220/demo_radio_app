@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Joseph Rodrigo\\dev\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Joseph Rodrigo\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "D:\\demo_radio_app\\RadioSuperApp-dev\\android\\app\\.cxx\\RelWithDebInfo\\r3f2w4n4\\armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Joseph Rodrigo\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "D:\\demo_radio_app\\RadioSuperApp-dev\\android\\app\\.cxx\\RelWithDebInfo\\r3f2w4n4\\armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
