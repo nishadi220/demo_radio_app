@@ -3,6 +3,10 @@ class AppImages {
   static const String pngFormat = ".png";
   static const String jpgFormat = ".jpg";
 
+  //new logo - Nadeo
+  static const String nadeoLogo = '${basePath}nadeoLogo$jpgFormat';
+
+
   static const String defaultImage = '${basePath}defaultImage$jpgFormat';
   static const String appLogo = '${basePath}logoCMG$jpgFormat';
   static const String cool = '${basePath}cool$pngFormat';

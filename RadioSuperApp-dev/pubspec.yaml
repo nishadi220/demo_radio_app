@@ -50,6 +50,9 @@ dependencies:
   path_provider: ^2.1.5
   device_info_plus: ^11.2.0
   english_words: ^4.0.0
+  video_player: ^2.7.2
+  youtube_player_flutter: ^9.0.2
+  chewie: ^1.7.1
 
 dev_dependencies:
   flutter_test:

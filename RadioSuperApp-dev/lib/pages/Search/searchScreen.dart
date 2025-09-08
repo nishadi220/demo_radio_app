@@ -114,7 +114,16 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
       body: Container(
-        color: const Color(0xFF171717),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF7030A0), // Custom purple
+              Colors.black,       // Black
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16.0),

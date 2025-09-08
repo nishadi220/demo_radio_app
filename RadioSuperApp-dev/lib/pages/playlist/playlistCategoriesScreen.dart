@@ -19,11 +19,9 @@ class PlaylistCategoriesScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF7F57F6), // Blue at 8%
-              Color(0xFFB87EAD), // Purple at 46%
-              Color(0xFFF1BC99), // Pink at 100%
+              Color(0xFF7030A0), // Custom color
+              Colors.black,      // Black
             ],
-            stops: [0.10, 0.60, 1.0],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

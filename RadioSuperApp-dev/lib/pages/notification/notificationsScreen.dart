@@ -21,7 +21,16 @@ class NotificationsScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: Colors.black,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF7030A0), // Custom purple
+              Colors.black,       // Black
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

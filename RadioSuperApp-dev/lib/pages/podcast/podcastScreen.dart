@@ -19,18 +19,16 @@ class _PodcastScreenState extends State<PodcastScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF4360AA), // Blue at 8%
-              Color(0xFF91B7F6), // Purple at 46%
-              Color(0xFF908DF3), // Pink at 100%
-            ],
-            stops: [0.10, 0.60, 1.0],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFF7030A0), // Custom color
+            Colors.black,      // Black
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
+      ),
         child: ListView(
             children: [
               const SizedBox(height: 10),

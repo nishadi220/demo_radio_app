@@ -4,6 +4,7 @@ class AppRoutes {
 
   static const String homePage = '/home';
   static const String radioPage = '/radio';
+  static const String videoPage = '/video';
   static const String playlistPage = '/playlist';
   static const String podcastPage = '/podcast';
   static const String settingsPage = '/settings';
@@ -20,6 +21,9 @@ class AppRoutes {
   // Radio navigation
   static const String radioPlayer = "/radio_player";
   static const String radioProgramme = "/radio_programme";
+
+  // Video navigation
+  static const String individualVideo = "/individual_video";
 
   // Playlist navigation
   static const String playlistCategories = "/playlist_categories";
@@ -42,6 +46,4 @@ class AppRoutes {
   static const String notificationsSettings = "/notifications_settings";
   static const String privacyPolicy = "/privacy_policy";
   static const String termsAndConditions = "/terms_conditions";
-
-
 }

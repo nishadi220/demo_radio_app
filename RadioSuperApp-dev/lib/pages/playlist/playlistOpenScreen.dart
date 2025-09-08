@@ -27,11 +27,9 @@ class PlaylistOpenScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF7F57F6),
-              Color(0xFFB87EAD),
-              Color(0xFFF1BC99),
+              Color(0xFF7030A0), // Custom color
+              Colors.black,      // Black
             ],
-            stops: [0.0, 0.61, 1.0],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
