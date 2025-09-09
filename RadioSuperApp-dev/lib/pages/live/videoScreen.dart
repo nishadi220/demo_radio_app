@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../../router/appRoutes.dart';
+import 'movie_player_screen.dart'; // Import the new screen file
 
 class VideoScreen extends StatelessWidget {
   const VideoScreen({super.key});
@@ -92,6 +95,7 @@ class VideoScreen extends StatelessWidget {
       ]
     },
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,20 +138,34 @@ class VideoScreen extends StatelessWidget {
                         items.length,
                             (i) {
                           final item = items[i];
-
-                          // Corrected: Always use NetworkImage as all items are now network images.
                           final imageProvider = NetworkImage(item["image"]);
 
-                          return Container(
-                            margin: const EdgeInsets.only(right: 10),
-                            width: 120,
-                            height: 180,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: Colors.grey[800],
-                              image: DecorationImage(
-                                image: imageProvider,
-                                fit: BoxFit.cover,
+                          return GestureDetector(
+                            onTap: () {
+                              // Navigate to the new movie player screen
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => MoviePlayerScreen(movie: item as Map<String, dynamic>),
+                              //   ),
+                              // );
+
+                              context.go(
+                                '${AppRoutes.videoPage}/${AppRoutes.moviePlayer}',
+                                extra: item,
+                              );
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.only(right: 10),
+                              width: 120,
+                              height: 180,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.grey[800],
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           );

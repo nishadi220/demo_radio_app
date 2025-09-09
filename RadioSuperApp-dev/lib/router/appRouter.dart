@@ -28,6 +28,7 @@ import '../pages/Settings/playbackQuality.dart';
 import '../pages/chats/chatScreen.dart';
 import '../pages/favourites/favouritesScreen.dart';
 import '../pages/live/individualVideoScreen.dart';
+import '../pages/live/movie_player_screen.dart';
 import '../pages/podcast/podcastEpisodeScreen.dart';
 import '../pages/settings/privacyPolicyScreen.dart';
 import '../pages/settings/termsAndConditions.dart';
@@ -89,12 +90,12 @@ final appRouter = GoRouter(
               GoRoute(
                   path: AppRoutes.videoPage,
                   builder: (context, state) => const VideoScreen(),
-                  routes: [
+                  routes: [ // Add the routes property
                     GoRoute(
-                      path: AppRoutes.individualVideo,
+                      path: AppRoutes.moviePlayer, // Use the new route name
                       builder: (context, state) {
-                        final videoData = state.extra as Map<String, dynamic>;
-                        return IndividualLiveScreen(videoData: videoData);
+                        final movie = state.extra as Map<String, dynamic>;
+                        return MoviePlayerScreen(movie: movie);
                       },
                     ),
                   ]

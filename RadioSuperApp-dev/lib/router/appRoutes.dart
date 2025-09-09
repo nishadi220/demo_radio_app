@@ -9,6 +9,8 @@ class AppRoutes {
   static const String podcastPage = '/podcast';
   static const String settingsPage = '/settings';
 
+  static const String moviePlayer = 'movie_player';
+
   static const String search = "/search";
   static const String notifications = "/notifications";
 
@@ -21,9 +23,6 @@ class AppRoutes {
   // Radio navigation
   static const String radioPlayer = "/radio_player";
   static const String radioProgramme = "/radio_programme";
-
-  // Video navigation
-  static const String individualVideo = "/individual_video";
 
   // Playlist navigation
   static const String playlistCategories = "/playlist_categories";
